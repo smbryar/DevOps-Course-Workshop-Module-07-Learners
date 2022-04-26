@@ -1,16 +1,20 @@
 pipeline {
-    agent {
-        docker { image 'node:16.13.1-alpine' }
-    }
+    agent none
     stages {
-        stage('Build') {
+        stage('Build and run C# code') {
+            agent {
+                docker { image 'mcr.microsoft.com/dotnet/sdk:6.0' }
+            }
             steps {
-                echo 'Building..'
+                echo 'Dotnet agent'
             }
         }
-        stage('Test') {
+        stage('Build and run typescript code') {
+            agent {
+                docker { image 'node:17-bullseye' }
+            }
             steps {
-                echo 'Testing..'
+                echo 'Node agent'
             }
         }
     }
