@@ -21,6 +21,8 @@ pipeline {
                 dir("./DotnetTemplate.Web") {
                     sh 'npm ci'
                     sh 'npm run build'
+                    sh 'npm run lint'
+                    sh 'npm run test-with-coverage'
                 }
             }
         }
