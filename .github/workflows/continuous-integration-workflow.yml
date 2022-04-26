@@ -25,3 +25,9 @@ jobs:
       run: |
           npm ci
           npm run build
+    - name: Run typescript tests
+      working-directory: ./DotnetTemplate.Web
+      run: npm t
+    - name: Run typescript linting
+      working-directory: ./DotnetTemplate.Web
+      run: npm run lint
