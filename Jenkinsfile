@@ -19,6 +19,7 @@ pipeline {
             }
             steps {
                 dir("./DotnetTemplate.Web") {
+                    slackSend color: "good", message: "Message from Jenkins Pipeline"
                     sh 'npm ci'
                     sh 'npm run build'
                     sh 'npm run lint'
