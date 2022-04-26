@@ -16,3 +16,12 @@ jobs:
       run: dotnet build
     - name: Run C# tests
       run: dotnet test
+    - name: Setup node
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+    - name: Build typescript code
+      working-directory: ./DotnetTemplate.Web
+      run: |
+          npm ci
+          npm run build
